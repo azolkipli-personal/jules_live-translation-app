@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Live Meeting Translator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header with title and help button -->
+        <header class="header">
+            <h1>🎙️ Live Meeting Translator</h1>
+            <button id="helpBtn" class="help-btn" title="How to use">?</button>
+        </header>
+
+        <p class="subtitle">Real-time translation for online meetings</p>
+
+        <!-- Controls Section -->
+        <div class="controls">
+            <!-- Audio Source Selector -->
+            <div class="control-group">
+                <label for="audioSource">Audio Source:</label>
+                <select id="audioSource">
+                    <option value="microphone">🎤 Microphone</option>
+                    <option value="system">🖥️ System Audio (Tab/Screen)</option>
+                    <option value="file">📁 Audio/Video File</option>
+                </select>
+            </div>
+
+            <!-- Translation Direction Selector -->
+            <div class="control-group">
+                <label for="translationDirection">Translate:</label>
+                <select id="translationDirection">
+                    <option value="ja-en">🇯🇵 Japanese → 🇬🇧 English</option>
+                    <option value="en-ja">🇬🇧 English → 🇯🇵 Japanese</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- File Input Section (Hidden by default) -->
+        <div id="fileInputContainer" class="file-input-container hidden">
+            <input type="file" id="mediaFileInput" accept="video/*,audio/*" class="file-input">
+            <video id="mediaPlayer" controls class="media-player hidden"></video>
+        </div>
+
+        <!-- Session Timer -->
+        <div class="session-info">
+            <span id="recordingIndicator" class="recording-indicator hidden">● Recording</span>
+            <span id="sessionTimer">00:00:00</span>
+        </div>
+
+        <!-- Main Buttons -->
+        <div class="button-container">
+            <button id="startBtn" class="primary-btn">▶ Start Translating</button>
+            <button id="stopBtn" class="stop-btn hidden">⏹ Stop</button>
+            <button id="clearBtn" class="secondary-btn">🗑️ Clear</button>
+            <button id="exportBtn" class="secondary-btn">📥 Export</button>
+        </div>
+
+        <!-- Current Speech Input (hidden, for speech-to-text library) -->
+        <div class="indicator hidden">
+            <textarea id="outPut" placeholder="Listening..."></textarea>
+        </div>
+
+        <!-- Transcript History -->
+        <div class="transcript-section">
+            <h2>📝 Transcript</h2>
+            <div id="transcriptHistory" class="transcript-history">
+                <div class="empty-state">
+                    Click "Start Translating" to begin capturing audio...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h2>📖 How to Use</h2>
+
+            <div class="instruction-section">
+                <h3>🎤 Microphone Mode</h3>
+                <ol>
+                    <li>Select "Microphone" as audio source</li>
+                    <li>Choose your translation direction (Japanese ↔ English)</li>
+                    <li>Click "Start Translating"</li>
+                    <li>Allow microphone access when prompted</li>
+                    <li>Speak clearly - your words will be transcribed and translated</li>
+                </ol>
+            </div>
+
+            <div class="instruction-section">
+                <h3>🖥️ System Audio Mode (For Online Meetings)</h3>
+                <ol>
+                    <li>Open your meeting (Teams, Zoom, etc.) in a browser tab</li>
+                    <li>Select "System Audio" as audio source</li>
+                    <li>Click "Start Translating"</li>
+                    <li>When prompted, select the tab with your meeting</li>
+                    <li><strong>Important:</strong> Check the "Share audio" checkbox!</li>
+                    <li>Audio from the meeting will be transcribed and translated</li>
+                </ol>
+            </div>
+
+            <div class="instruction-section">
+                <h3>💡 Tips</h3>
+                <ul>
+                    <li>For best results, reduce background noise</li>
+                    <li>Speak one at a time for clearer transcription</li>
+                    <li>Use "Export" to save your transcript</li>
+                    <li>Sessions auto-restart if recognition times out</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
