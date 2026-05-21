@@ -1,5 +1,12 @@
 # Jules - Live Translation App
 
+
+<p align="center">
+  <a href="https://github.com/sponsors/azolkipli-personal">
+    <img src="https://img.shields.io/badge/Sponsor-%E2%9D%A4%EF%B8%8F%20jpeigo--slides-DB61A2?style=for-the-badge&logo=github&logoColor=white" alt="Sponsor">
+  </a>
+</p>
+
 ## Why
 
 Sitting in a meeting conducted in a language you're still learning is exhausting. You catch fragments, miss nuance, and by the time you've mentally translated one sentence, the conversation has moved on. Real-time interpretation services exist, but they're expensive and overkill for internal team meetings where you just need a live transcript with rough translation to stay oriented. The gap: something that runs in a browser tab, streams audio, and gives you a running translation without requiring a human interpreter or a $500/month SaaS subscription.
